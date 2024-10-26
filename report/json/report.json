@@ -62,60 +62,106 @@
   },
   "suites": [
     {
-      "title": "demo.spec.js",
-      "file": "demo.spec.js",
+      "title": "saucedemo-pom.spec.js",
+      "file": "saucedemo-pom.spec.js",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "web UI Demo",
-          "file": "demo.spec.js",
-          "line": 3,
-          "column": 6,
-          "specs": [
+          "title": "TC 3 - Successful login using page object",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "TC-1 Successful Login",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 6132,
+                  "errors": [],
+                  "stdout": [
                     {
-                      "workerIndex": 0,
-                      "status": "passed",
-                      "duration": 5254,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2024-10-24T08:16:31.274Z",
-                      "attachments": []
+                      "text": "diekesekusi dari before all - melakukan setup test env\n"
+                    },
+                    {
+                      "text": "diekesekusi dari before each - melakukan clean up item di cart\n"
+                    },
+                    {
+                      "text": "passed\n"
+                    },
+                    {
+                      "text": "passed\n"
                     }
                   ],
-                  "status": "expected"
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-10-26T14:47:25.217Z",
+                  "attachments": []
                 }
               ],
-              "id": "e55eebcb6d281b4de51c-04a1481e3cf8540a6802",
-              "file": "demo.spec.js",
-              "line": 5,
-              "column": 5
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "e61e4ff397ff76ea4e21-099bdb8ae8c1db2a6d60",
+          "file": "saucedemo-pom.spec.js",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "TC 4 - Successful login using page object - visual user",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5172,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "diekesekusi dari before each - melakukan clean up item di cart\n"
+                    },
+                    {
+                      "text": "passed\n"
+                    },
+                    {
+                      "text": "passed\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-10-26T14:47:32.264Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-9aefbd5ff29bd73e5400",
+          "file": "saucedemo-pom.spec.js",
+          "line": 24,
+          "column": 1
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-10-24T08:16:21.297Z",
-    "duration": 17776.152,
-    "expected": 1,
+    "startTime": "2024-10-26T14:47:22.413Z",
+    "duration": 19670.559999999998,
+    "expected": 2,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
