@@ -1,6 +1,8 @@
+import { expect } from "@playwright/test"
+
 export class LoginPage {
 
-    //keywiords: oop, class method, class constructor
+    //keywords: oop, class method, class constructor
     constructor(page) {
         this.page = page
 
@@ -11,6 +13,9 @@ export class LoginPage {
 
     async navigate() {
         await this.page.goto("https://www.saucedemo.com/")
+        //visual comparison
+        await expect(this.page).toHaveScreenshot('login-page.png')
+
     }
 
     async inputUsername(username) {

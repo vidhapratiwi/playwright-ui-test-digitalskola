@@ -1,7 +1,7 @@
 const { test } = require("./base/base-test");
 
 //lebih simplae pake custom fixture
-test('TC 3 - Successful login using page object', async ({ loginPage, dashboardPage, cartPage }) => {
+test('TC 3 - Successful login using page object', { tag: ['@page-object', '@smoke']}, async ({ loginPage, dashboardPage, cartPage }) => {
     //cara lebih singkat
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
@@ -15,7 +15,7 @@ test('TC 3 - Successful login using page object', async ({ loginPage, dashboardP
     
 });
 
-test('TC 4 - Successful login using page object - visual user', async ({ loginPage, dashboardPage }) => { 
+test('TC 4 - Successful login using page object - visual user', { tag: ['@mobile']}, async ({ loginPage, dashboardPage }) => { 
     await loginPage.login(process.env.VISUAL_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     
@@ -31,12 +31,13 @@ test.beforeEach(async () => {
 
 //screenshot
 test.afterEach(async ({ page }, testInfo) => {
-    console.log(testInfo.status)
-    console.log(testInfo.expectedStatus)
-
     if (testInfo.status !== testInfo.expectedStatus) {
         console.log("Test failed, perform screenshot")
-        await page.screenshot({path: 'failed screenshot.png', fullPage:true})
+        const image = await page.screenshot({path: 'failed screenshot.png', fullPage:true})
+        testInfo.attach('failed test', {
+            body: image,
+            contentType: 'image/png',
+        })
     }
 
 });

@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "reporter": [
@@ -44,8 +44,36 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {},
-        "id": "chromium",
-        "name": "chromium",
+        "id": "desktop-smoke-test",
+        "name": "desktop-smoke-test",
+        "testDir": "D:/bootcamp/playwright-ui-test-digitalskola/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/bootcamp/playwright-ui-test-digitalskola/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "mobile-device",
+        "name": "mobile-device",
+        "testDir": "D:/bootcamp/playwright-ui-test-digitalskola/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/bootcamp/playwright-ui-test-digitalskola/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "edge",
+        "name": "edge",
         "testDir": "D:/bootcamp/playwright-ui-test-digitalskola/tests",
         "testIgnore": [],
         "testMatch": [
@@ -57,7 +85,7 @@
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.48.1",
-    "workers": 1,
+    "workers": 5,
     "webServer": null
   },
   "suites": [
@@ -70,19 +98,22 @@
         {
           "title": "TC 3 - Successful login using page object",
           "ok": true,
-          "tags": [],
+          "tags": [
+            "page-object",
+            "smoke"
+          ],
           "tests": [
             {
               "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
+              "projectId": "edge",
+              "projectName": "edge",
               "results": [
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 6132,
+                  "duration": 6903,
                   "errors": [],
                   "stdout": [
                     {
@@ -90,68 +121,61 @@
                     },
                     {
                       "text": "diekesekusi dari before each - melakukan clean up item di cart\n"
-                    },
-                    {
-                      "text": "passed\n"
-                    },
-                    {
-                      "text": "passed\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-10-26T14:47:25.217Z",
+                  "startTime": "2024-10-29T10:08:24.250Z",
                   "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "e61e4ff397ff76ea4e21-099bdb8ae8c1db2a6d60",
+          "id": "e61e4ff397ff76ea4e21-2cfc681658b5dba57416",
           "file": "saucedemo-pom.spec.js",
-          "line": 8,
+          "line": 4,
           "column": 1
         },
         {
           "title": "TC 4 - Successful login using page object - visual user",
           "ok": true,
-          "tags": [],
+          "tags": [
+            "mobile"
+          ],
           "tests": [
             {
               "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
+              "projectId": "edge",
+              "projectName": "edge",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 1,
                   "status": "passed",
-                  "duration": 5172,
+                  "duration": 6282,
                   "errors": [],
                   "stdout": [
                     {
+                      "text": "diekesekusi dari before all - melakukan setup test env\n"
+                    },
+                    {
                       "text": "diekesekusi dari before each - melakukan clean up item di cart\n"
-                    },
-                    {
-                      "text": "passed\n"
-                    },
-                    {
-                      "text": "passed\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-10-26T14:47:32.264Z",
+                  "startTime": "2024-10-29T10:08:24.473Z",
                   "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "e61e4ff397ff76ea4e21-9aefbd5ff29bd73e5400",
+          "id": "e61e4ff397ff76ea4e21-15532dca212220b52601",
           "file": "saucedemo-pom.spec.js",
-          "line": 24,
+          "line": 18,
           "column": 1
         }
       ]
@@ -159,8 +183,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-10-26T14:47:22.413Z",
-    "duration": 19670.559999999998,
+    "startTime": "2024-10-29T10:08:19.788Z",
+    "duration": 13785.284000000001,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,

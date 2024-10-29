@@ -2,7 +2,7 @@ const { test, expect } = require("@playwright/test");
 
 test.describe('web UI Demo', () => {
     
-    test('TC-1 Successful login using standard user', async ({ page }) => {
+    test('TC-1 Successful login using standard user', { tag: ['@smoke'] }, async ({ page }) => {
         //navigation
         await page.goto('https://www.saucedemo.com/');
 
@@ -38,7 +38,7 @@ test.describe('web UI Demo', () => {
 
     });
 
-    test('TC-2 Successful login using visual user', async ({ page }) => {
+    test('TC-2 Successful login using visual user', { tag: ['@smoke'] }, async ({ page }) => {
         //navigation
         await page.goto('https://www.saucedemo.com/');
 

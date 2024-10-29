@@ -3,6 +3,7 @@ const { expect } = require("@playwright/test");
 export class DashboardPage {
     
     constructor(page) {
+        this.page = page
         this.pageTitle = page.getByText('Swag Labs')
         this.menuButton = page.getByRole('button', { name:'Open Menu'})
         this.item1Button = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]')
@@ -13,8 +14,10 @@ export class DashboardPage {
     }
 
     async validateOnPage() {
-        expect(this.pageTitle).toBeVisible()
-        expect(this.menuButton).toBeVisible()
+        await expect(this.pageTitle).toBeVisible()
+        await expect(this.menuButton).toBeVisible()
+
+        await expect(this.page).toHaveScreenshot('dashboard-page.png')
     }
 
     async addItem() {

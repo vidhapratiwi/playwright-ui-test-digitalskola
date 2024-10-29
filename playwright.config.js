@@ -2,19 +2,15 @@
 const { defineConfig, devices } = require('@playwright/test');
 const path = require('path');
 
+//env file
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
   testDir: './tests',
+  snapshotPathTemplate: 'tests/snapshots/{arg}{ext}',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,7 +18,14 @@ module.exports = defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 2,
+
+  expect: {
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.1
+    },
+  },
+
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['list'],
@@ -40,8 +43,22 @@ module.exports = defineConfig({
 
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'desktop-smoke-test',
+      use: {
+        ...devices['Desktop Chrome'],
+        userAgent: 'staging-automation-test'
+      },
+      grep: /@smoke/
+    },
+    {
+      name: 'mobile-device',
+      use: {...devices['Pixel 7']},
+      grep: /@mobile/,
+      ignoreSnapshots: true
+    },
+    {
+      name: 'edge',
+      use: {...devices['Desktop Edge']},
     },
   ],
   /* Configure projects for major browsers */
