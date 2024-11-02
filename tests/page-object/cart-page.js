@@ -2,6 +2,7 @@ const { expect } = require("@playwright/test");
 
 export class CartPage {
     constructor(page) {
+        this.page = page
         this.cartPageTitle = page.locator('[data-test="title"]')
         this.item1Title = page.getByText('Sauce Labs Backpack')
         this.item2Title = page.getByText('Sauce Labs Fleece Jacket')
@@ -9,6 +10,8 @@ export class CartPage {
     
     async validateCartPage() {
         await expect(this.cartPageTitle).toBeVisible()
+
+        await expect(this.page).toHaveScreenshot('cart-page.png')
     }
 
     async validateItemCart() {
